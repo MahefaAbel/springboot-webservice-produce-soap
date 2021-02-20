@@ -22,13 +22,23 @@ public class WebServiceConfig extends WsConfigurerAdapter {
 		servlet.setTransformWsdlLocations(true);
 		return new ServletRegistrationBean<>(servlet, "/ws/*");
 	}
+	
+	@Bean(name = "factorial")
+	public DefaultWsdl11Definition defaultWsdl11Definition_Factorial(XsdSchema factorielSchema) {
+		DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
+		wsdl11Definition.setPortTypeName("FactorialPort");
+		wsdl11Definition.setLocationUri("/ws/calcul");
+		wsdl11Definition.setTargetNamespace("http://esti.mg/master/m2/msi/910");
+		wsdl11Definition.setSchema(factorielSchema);
+		return wsdl11Definition;
+	}
 
 	@Bean(name = "countries")
 	public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema countriesSchema) {
 		DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
 		wsdl11Definition.setPortTypeName("CountriesPort");
 		wsdl11Definition.setLocationUri("/ws");
-		wsdl11Definition.setTargetNamespace("http://spring.io/guides/gs-producing-web-service");
+		wsdl11Definition.setTargetNamespace("http://esti.mg/master/m2/msi/910");
 		wsdl11Definition.setSchema(countriesSchema);
 		return wsdl11Definition;
 	}
@@ -36,5 +46,10 @@ public class WebServiceConfig extends WsConfigurerAdapter {
 	@Bean
 	public XsdSchema countriesSchema() {
 		return new SimpleXsdSchema(new ClassPathResource("countries.xsd"));
+	}
+
+	@Bean
+	public XsdSchema factorielSchema() {
+		return new SimpleXsdSchema(new ClassPathResource("factorial.xsd"));
 	}
 }

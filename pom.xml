@@ -86,6 +86,7 @@
 				<configuration>
 					<sources>
 						<source>${project.basedir}/src/main/resources/countries.xsd</source>
+						<source>${project.basedir}/src/main/resources/factorial.xsd</source>
 					</sources>
 					<outputDirectory>src/main/java/generated/</outputDirectory>
 					<packageName>jaxb.mahefa.showcase.producing_ws</packageName>

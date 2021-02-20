@@ -1,0 +1,24 @@
+<x:schema 
+	xmlns:x="http://www.w3.org/2001/XMLSchema"
+	xmlns:y="http://esti.mg/master/m2/msi/910"
+	targetNamespace="http://esti.mg/master/m2/msi/910"
+>
+
+	<x:element name="getFactorialRequest">
+		<x:complexType>
+			<x:sequence>
+				<x:element name="nb" type="x:int" />
+			</x:sequence>
+		</x:complexType>
+	</x:element>	
+
+	<x:element name="getFactorialReponse">
+		<x:complexType>
+			<x:sequence>
+				<x:element name="nb" type="x:int"/>
+				<x:element name="result" type="x:int"/>
+			</x:sequence>
+		</x:complexType>
+	</x:element>
+	
+</x:schema>
